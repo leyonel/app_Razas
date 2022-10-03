@@ -23,3 +23,11 @@ class Creado extends Evento {}
 class NombreRazaRecibido extends Evento {}
 
 class Verificacion extends Evento {}
+
+class BlocVerificacion extends Bloc<Evento, Estado> {
+  BlocVerificacion() : super(Creandose()) {
+    on<Creado>((event, emit) {
+      // TODO: implement event handler
+    });
+  }
+}
