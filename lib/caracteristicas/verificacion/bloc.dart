@@ -6,7 +6,7 @@ class Estado {}
 
 class Creandose extends Estado {}
 
-class SolicitandoRaza extends Estado {}
+class SolicitandoNombreRaza extends Estado {}
 
 class EsperandoConfirmacion extends Estado {}
 
@@ -27,7 +27,7 @@ class Verificacion extends Evento {}
 class BlocVerificacion extends Bloc<Evento, Estado> {
   BlocVerificacion() : super(Creandose()) {
     on<Creado>((event, emit) {
-      // TODO: implement event handler
+      emit(SolicitandoNombreRaza());
     });
   }
 }
