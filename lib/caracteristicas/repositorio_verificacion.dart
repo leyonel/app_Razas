@@ -1,18 +1,16 @@
 import 'dart:convert';
-import 'dart:html';
-
 import 'package:app_doggys/dominio/problemas.dart';
 import 'package:app_doggys/dominio/registro_raza.dart';
 import 'package:app_doggys/dominio/varibale_dominio.dart';
 import 'package:fpdart/fpdart.dart';
 
-abstract class repositoriVerificacion {
+abstract class repositorioVerificacion {
   Either<Problema, RegistroRaza> obtenerRegistroRaza(NickFormado nick);
 }
 
 List campos = ['status', 'message'];
 
-class RepositorioPruebasVerificacion extends repositoriVerificacion {
+class RepositorioPruebasVerificacion extends repositorioVerificacion {
   final String _hound =
       """{"message":["afghan","basset","blood","english","ibizan","plott","walker"],"status":"success"} """;
 
@@ -30,7 +28,19 @@ class RepositorioPruebasVerificacion extends repositoriVerificacion {
       return obtenerRegistroUsuarioDesdeJSON(_hound);
     }
 
-    throw UnimplementedError();
+    if (nick.valor == 'husky') {
+      return obtenerRegistroUsuarioDesdeJSON(_husky);
+    }
+
+    if (nick.valor == 'pez') {
+      return obtenerRegistroUsuarioDesdeJSON(_pez);
+    }
+
+    if (nick.valor == 'incorrecto') {
+      return Left(VersionIncorrectaJSON());
+    }
+
+    return Left(RazaNoEncontrada());
   }
 }
 
@@ -38,7 +48,7 @@ Either<Problema, RegistroRaza> obtenerRegistroUsuarioDesdeJSON(
     String docuemnto) {
   Map<String, dynamic> resultado = jsonDecode(docuemnto);
 
-  if (resultado['message'].isEmpty || resultado['status'] == "error") {
+  if (resultado['status'] == "error") {
     return left(RazaNoEncontrada());
   }
 

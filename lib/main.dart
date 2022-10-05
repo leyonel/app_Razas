@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'caracteristicas/repositorio_verificacion.dart';
 import 'caracteristicas/verificacion/bloc.dart';
 
 void main() {
@@ -14,7 +15,8 @@ class MiAplicacionCanina extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        BlocVerificacion blocVerificacion = BlocVerificacion();
+        BlocVerificacion blocVerificacion =
+            BlocVerificacion(RepositorioPruebasVerificacion());
         Future.delayed(Duration(seconds: 1));
         return blocVerificacion;
       },
