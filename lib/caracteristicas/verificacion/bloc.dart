@@ -1,5 +1,6 @@
 //LOS ESTADOS VAN AQUI
 
+import 'package:app_doggys/dominio/varibale_dominio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Estado {}
@@ -20,7 +21,10 @@ class Evento {}
 
 class Creado extends Evento {}
 
-class NombreRazaRecibido extends Evento {}
+class NombreRazaRecibido extends Evento {
+  final NickFormado nick;
+  NombreRazaRecibido(this.nick);
+}
 
 class Verificacion extends Evento {}
 
