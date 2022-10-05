@@ -16,7 +16,16 @@ void main() {
     'Cuando Nombre recibido sea Hound debe de tener mostrando nombre confirmado',
     build: () => BlocVerificacion(RepositorioPruebasVerificacion()),
     act: (bloc) =>
-        bloc.add(NombreRazaRecibido(NickFormado.consutructor('hound'))),
+        bloc.add(NombreRazaRecibido(NickFormado.constructor('hound'))),
+    expect: () =>
+        [isA<EsperandoConfirmacion>(), isA<MostrandoRazaConfirmada>()],
+  );
+
+  blocTest<BlocVerificacion, Estado>(
+    'CUando NOmbre recibido es Husky debo de tener Mostando nombre no confirmado',
+    build: () => BlocVerificacion(RepositorioPruebasVerificacion()),
+    act: (bloc) =>
+        bloc.add(NombreRazaRecibido(NickFormado.constructor('husky'))),
     expect: () =>
         [isA<EsperandoConfirmacion>(), isA<MostrandoRazaConfirmada>()],
   );

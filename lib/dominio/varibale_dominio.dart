@@ -3,7 +3,7 @@ class NickFormado {
 
   NickFormado._(this.valor);
 
-  factory NickFormado.consutructor(String propuesta) {
+  factory NickFormado.constructor(String propuesta) {
     if (propuesta.trim().isEmpty) {
       throw ('Nick esta mal formado');
     }
