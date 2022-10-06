@@ -1,8 +1,8 @@
+import 'package:app_doggys/caracteristicas/repositorio_verificacion.dart';
+import 'package:app_doggys/caracteristicas/verificacion/bloc.dart';
+import 'package:app_doggys/caracteristicas/vistas/vista_cargando.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'caracteristicas/repositorio_verificacion.dart';
-import 'caracteristicas/verificacion/bloc.dart';
 
 void main() {
   runApp(const MiAplicacionCanina());
@@ -17,10 +17,12 @@ class MiAplicacionCanina extends StatelessWidget {
       create: (context) {
         BlocVerificacion blocVerificacion =
             BlocVerificacion(RepositorioPruebasVerificacion());
-        Future.delayed(Duration(seconds: 1));
+        Future.delayed(const Duration(seconds: 2), () {
+          blocVerificacion.add(Creado());
+        });
         return blocVerificacion;
       },
-      child: Aplicacion(),
+      child: const Aplicacion(),
     );
   }
 }
@@ -36,6 +38,9 @@ class Aplicacion extends StatelessWidget {
         home: Scaffold(body: Builder(
           builder: ((context) {
             var estado = context.watch<BlocVerificacion>().state;
+            if (estado is Creandose) {
+              return VistaCargando();
+            }
             return const Center(
               child: Text("Regresa!"),
             );
