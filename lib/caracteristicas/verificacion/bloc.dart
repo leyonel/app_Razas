@@ -23,9 +23,9 @@ class MostrandoRazaConfirmada extends Estado {
 }
 
 class MostrandoRazaNoConfirmada extends Estado {
-  final NickFormado nick;
+  final NickFormado nombreRazaNoCofirmada;
 
-  MostrandoRazaNoConfirmada(this.nick);
+  MostrandoRazaNoConfirmada(this.nombreRazaNoCofirmada);
 }
 
 class MostrandoRazaSinSubRazas extends Estado {
