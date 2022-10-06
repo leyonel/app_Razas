@@ -28,7 +28,7 @@ void main() {
     act: (bloc) =>
         bloc.add(NombreRazaRecibido(NickFormado.constructor('husky'))),
     expect: () =>
-        [isA<EsperandoConfirmacion>(), isA<MostrandoRazaConfirmada>()],
+        [isA<EsperandoConfirmacion>(), isA<MostrandoRazaSinSubRazas>()],
   );
 
   blocTest<BlocVerificacion, Estado>(
