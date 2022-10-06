@@ -17,8 +17,9 @@ class EsperandoConfirmacion extends Estado {}
 
 class MostrandoRazaConfirmada extends Estado {
   final RegistroRaza registroRaza;
+  final NickFormado nombreRaza;
 
-  MostrandoRazaConfirmada(this.registroRaza);
+  MostrandoRazaConfirmada(this.registroRaza, this.nombreRaza);
 }
 
 class MostrandoRazaNoConfirmada extends Estado {
@@ -57,7 +58,7 @@ class BlocVerificacion extends Bloc<Evento, Estado> {
         if (l is VersionIncorrectaJSON) emit(MostrandoSolicitudActualizacion());
         if (l is RazaNoEncontrada) emit(MostrandoRazaNoConfirmada(event.nick));
       }, (r) {
-        emit(MostrandoRazaConfirmada(r));
+        emit(MostrandoRazaConfirmada(r, event.nick));
       });
     });
   }

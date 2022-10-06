@@ -1,7 +1,9 @@
 import 'package:app_doggys/caracteristicas/repositorio_verificacion.dart';
 import 'package:app_doggys/caracteristicas/verificacion/bloc.dart';
+import 'package:app_doggys/caracteristicas/vistas/vista_NombreRazaConfirmada.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_cargando.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_solicitando_raza.dart';
+import 'package:app_doggys/caracteristicas/vistas/vista_solicitud_actualizacionJson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,6 +46,14 @@ class Aplicacion extends StatelessWidget {
             }
             if (estado is SolicitandoNombreRaza) {
               return VistaSolicitandoNombrePerrito();
+            }
+            if (estado is MostrandoSolicitudActualizacion) {
+              return const VistaMostrandoSolicitudActualizacion();
+            }
+
+            if (estado is MostrandoRazaConfirmada) {
+              return VistaNombreRazaConfirmada(
+                  estado.registroRaza, estado.nombreRaza);
             }
             return const Center(
               child: Text("Regresa!"),

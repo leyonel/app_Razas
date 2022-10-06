@@ -77,9 +77,6 @@ class _VistaSolicitandoNombrePerritoState
                     child: const Text('Buscar Perrito'),
                   ),
           ),
-          Container(
-            child: Text(controlador.text),
-          )
         ],
       ),
     );
