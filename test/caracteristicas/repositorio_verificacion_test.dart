@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Pruebas Verificacion Offline', () {
-    test('Con Hound me regresa valor', () {
+    test('Con Hound me regresa valor con subrazas', () {
       RepositorioPruebasVerificacion repositorio =
           RepositorioPruebasVerificacion();
 
@@ -25,6 +25,35 @@ void main() {
               "walker"
             ]));
         expect(r.status, equals('success'));
+      });
+    });
+
+    test('Con Husky me regresa valor sin subrazas', () {
+      RepositorioPruebasVerificacion repositorio =
+          RepositorioPruebasVerificacion();
+
+      var resultado =
+          repositorio.obtenerRegistroRaza(NickFormado.constructor('husky'));
+      resultado.match((l) {
+        expect(false, equals(true));
+      }, (r) {
+        expect(r.mensaje, equals([]));
+        expect(r.status, equals('success'));
+      });
+    });
+
+    test('Con pez me regresa de estado error', () {
+      RepositorioPruebasVerificacion repositorio =
+          RepositorioPruebasVerificacion();
+
+      var resultado =
+          repositorio.obtenerRegistroRaza(NickFormado.constructor('pez'));
+      resultado.match((l) {
+        expect(false, equals(false));
+      }, (r) {
+        expect(
+            r.mensaje, equals("Breed not found (master breed does not exist)"));
+        expect(r.status, equals('error'));
       });
     });
   });
