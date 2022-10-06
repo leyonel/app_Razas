@@ -1,5 +1,6 @@
 import 'package:app_doggys/caracteristicas/repositorio_verificacion.dart';
 import 'package:app_doggys/caracteristicas/verificacion/bloc.dart';
+import 'package:app_doggys/dominio/problemas.dart';
 import 'package:app_doggys/dominio/varibale_dominio.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -36,5 +37,14 @@ void main() {
     act: (bloc) => bloc.add(NombreRazaRecibido(NickFormado.constructor('pez'))),
     expect: () =>
         [isA<EsperandoConfirmacion>(), isA<MostrandoRazaNoConfirmada>()],
+  );
+
+  blocTest<BlocVerificacion, Estado>(
+    'CUando NOmbre recibido es incorrecto debo de tener Version Incorrecta Json',
+    build: () => BlocVerificacion(RepositorioPruebasVerificacion()),
+    act: (bloc) =>
+        bloc.add(NombreRazaRecibido(NickFormado.constructor('incorrecto'))),
+    expect: () =>
+        [isA<EsperandoConfirmacion>(), isA<MostrandoSolicitudActualizacion>()],
   );
 }
