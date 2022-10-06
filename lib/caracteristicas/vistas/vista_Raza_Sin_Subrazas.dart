@@ -13,21 +13,23 @@ class VistaNombreRazaSinSubRazas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('Nombre: ${nombreRazaSinSubRazas.valor}'),
-        Text('Esta Raza no cuenta con subrazas'),
-        TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+    return Center(
+      child: Column(
+        children: [
+          Text('Nombre: ${nombreRazaSinSubRazas.valor}'),
+          Text('Esta Raza no cuenta con subrazas'),
+          TextButton(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            ),
+            onPressed: () {
+              final elBloc = context.read<BlocVerificacion>();
+              elBloc.add(Creado());
+            },
+            child: const Text('Regresar'),
           ),
-          onPressed: () {
-            final elBloc = context.read<BlocVerificacion>();
-            elBloc.add(Creado());
-          },
-          child: const Text('Regresar'),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
