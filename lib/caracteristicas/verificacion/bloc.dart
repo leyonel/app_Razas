@@ -56,10 +56,10 @@ class BlocVerificacion extends Bloc<Evento, Estado> {
       emit(SolicitandoNombreRaza());
     });
 
-    on<NombreRazaRecibido>((event, emit) {
+    on<NombreRazaRecibido>((event, emit) async {
       emit(EsperandoConfirmacion());
       final resultado =
-          _repositorioVerificacion.obtenerRegistroRaza(event.nick);
+          await _repositorioVerificacion.obtenerRegistroRaza(event.nick);
       resultado.match((l) {
         if (l is VersionIncorrectaJSON) emit(MostrandoSolicitudActualizacion());
         if (l is RazaNoEncontrada) emit(MostrandoRazaNoConfirmada(event.nick));

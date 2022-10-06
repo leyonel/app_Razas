@@ -12,7 +12,12 @@ class VistaMostrandoSolicitudActualizacion extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          const Text('Actualiza tu JSON'),
+          const Text(
+            'Actualiza tu JSON',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
           TextButton(
             style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue)),

@@ -146,6 +146,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "http",
+      "rootUri": "file:///C:/Users/leone/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http-0.13.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "http_multi_server",
       "rootUri": "file:///C:/Users/leone/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_multi_server-3.2.1",
       "packageUri": "lib/",
@@ -392,7 +398,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-10-06T02:52:03.639535Z",
+  "generated": "2022-10-06T07:13:45.900403Z",
   "generator": "pub",
   "generatorVersion": "2.19.0-273.0.dev"
 }

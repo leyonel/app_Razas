@@ -18,8 +18,20 @@ class VistaNombreRazaConfirmada extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text('Nombre: ${nombreRaza.valor}'),
-          Text('SubRazas: ${registroRaza.mensaje}'),
+          Text(
+            'Nombre: ${nombreRaza.valor}',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            'SubRazas: ${registroRaza.mensaje}',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
           TextButton(
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),

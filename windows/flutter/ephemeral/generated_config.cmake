@@ -16,7 +16,7 @@ list(APPEND FLUTTER_TOOL_ENVIRONMENT
   "FLUTTER_EPHEMERAL_DIR=C:\\Users\\leone\\OneDrive\\Escritorio\\9no Semestre\\algara\\app_Razas\\windows\\flutter\\ephemeral"
   "PROJECT_DIR=C:\\Users\\leone\\OneDrive\\Escritorio\\9no Semestre\\algara\\app_Razas"
   "FLUTTER_TARGET=C:\\Users\\leone\\OneDrive\\Escritorio\\9no Semestre\\algara\\app_Razas\\lib\\main.dart"
-  "DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ=="
+  "DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz1mYWxzZQ==,RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ=="
   "DART_OBFUSCATION=false"
   "TRACK_WIDGET_CREATION=true"
   "TREE_SHAKE_ICONS=false"

@@ -13,7 +13,12 @@ class VistaNombreRazaNoConfirmada extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Nombre de perro No Existente: ${nombreRazaNoConfirmado.valor}'),
+        Text(
+          'Nombre de perro No Existente: ${nombreRazaNoConfirmado.valor}',
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         TextButton(
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),

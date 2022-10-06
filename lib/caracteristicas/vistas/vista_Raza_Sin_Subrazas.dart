@@ -16,8 +16,18 @@ class VistaNombreRazaSinSubRazas extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text('Nombre: ${nombreRazaSinSubRazas.valor}'),
-          Text('Esta Raza no cuenta con subrazas'),
+          Text(
+            'Nombre: ${nombreRazaSinSubRazas.valor}',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text(
+            'Esta Raza no cuenta con subrazas',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
           TextButton(
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
