@@ -7,18 +7,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:app_doggys/dominio/registro_raza.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class VistaNombreRazaConfirmada extends StatelessWidget {
-  final RegistroRaza registroRaza;
-  final NickFormado nombreRaza;
-  const VistaNombreRazaConfirmada(this.registroRaza, this.nombreRaza,
-      {super.key});
+class VistaNombreRazaSinSubRazas extends StatelessWidget {
+  final NickFormado nombreRazaSinSubRazas;
+  const VistaNombreRazaSinSubRazas(this.nombreRazaSinSubRazas, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Nombre: ${nombreRaza.valor}'),
-        Text('SubRazas: ${registroRaza.mensaje}'),
+        Text('Nombre: ${nombreRazaSinSubRazas.valor}'),
+        Text('Esta Raza no cuenta con subrazas'),
         TextButton(
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),

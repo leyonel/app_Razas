@@ -1,6 +1,7 @@
 import 'package:app_doggys/caracteristicas/repositorio_verificacion.dart';
 import 'package:app_doggys/caracteristicas/verificacion/bloc.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_NombreRazaConfirmada.dart';
+import 'package:app_doggys/caracteristicas/vistas/vista_Raza_Sin_Subrazas.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_cargando.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_solicitando_raza.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_solicitud_actualizacionJson.dart';
@@ -54,6 +55,10 @@ class Aplicacion extends StatelessWidget {
             if (estado is MostrandoRazaConfirmada) {
               return VistaNombreRazaConfirmada(
                   estado.registroRaza, estado.nombreRaza);
+            }
+
+            if (estado is MostrandoRazaSinSubRazas) {
+              return VistaNombreRazaSinSubRazas(estado.nombreRazaSinSubRazas);
             }
 
             if (estado is MostrandoRazaConfirmada) {}
