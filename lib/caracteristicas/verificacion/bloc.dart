@@ -28,6 +28,12 @@ class MostrandoRazaNoConfirmada extends Estado {
   MostrandoRazaNoConfirmada(this.nick);
 }
 
+class MostrandoRazaSinSubRazas extends Estado {
+  final NickFormado nick;
+
+  MostrandoRazaSinSubRazas(this.nick);
+}
+
 class MostrandoSolicitudActualizacion extends Estado {}
 
 //LOS EVENTOS VAN AQUI
@@ -57,6 +63,7 @@ class BlocVerificacion extends Bloc<Evento, Estado> {
       resultado.match((l) {
         if (l is VersionIncorrectaJSON) emit(MostrandoSolicitudActualizacion());
         if (l is RazaNoEncontrada) emit(MostrandoRazaNoConfirmada(event.nick));
+        if (l is SinSubRazas) emit(MostrandoRazaSinSubRazas(event.nick));
       }, (r) {
         emit(MostrandoRazaConfirmada(r, event.nick));
       });

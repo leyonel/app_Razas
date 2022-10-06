@@ -52,6 +52,10 @@ Either<Problema, RegistroRaza> obtenerRegistroUsuarioDesdeJSON(
     return left(RazaNoEncontrada());
   }
 
+  if (resultado['message'].isEmpty) {
+    return left(SinSubRazas());
+  }
+
   return Right(RegistroRaza.constructor(
       propuestaMensaje: resultado['message'],
       propuestaStatus: resultado['status']));

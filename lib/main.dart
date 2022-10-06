@@ -55,6 +55,8 @@ class Aplicacion extends StatelessWidget {
               return VistaNombreRazaConfirmada(
                   estado.registroRaza, estado.nombreRaza);
             }
+
+            if (estado is MostrandoRazaConfirmada) {}
             return const Center(
               child: Text("Regresa!"),
             );
