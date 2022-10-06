@@ -1,6 +1,7 @@
 import 'package:app_doggys/caracteristicas/repositorio_verificacion.dart';
 import 'package:app_doggys/caracteristicas/verificacion/bloc.dart';
 import 'package:app_doggys/caracteristicas/vistas/vista_cargando.dart';
+import 'package:app_doggys/caracteristicas/vistas/vista_solicitando_raza.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,6 +41,9 @@ class Aplicacion extends StatelessWidget {
             var estado = context.watch<BlocVerificacion>().state;
             if (estado is Creandose) {
               return VistaCargando();
+            }
+            if (estado is SolicitandoNombreRaza) {
+              return VistaSolicitandoNombrePerrito();
             }
             return const Center(
               child: Text("Regresa!"),
