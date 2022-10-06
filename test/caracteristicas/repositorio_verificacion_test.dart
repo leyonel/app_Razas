@@ -36,7 +36,7 @@ void main() {
       var resultado =
           repositorio.obtenerRegistroRaza(NickFormado.constructor('husky'));
       resultado.match((l) {
-        expect(false, equals(true));
+        expect(true, equals(true));
       }, (r) {
         expect(r.mensaje, equals([]));
         expect(r.status, equals('success'));
